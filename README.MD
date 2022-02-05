@@ -27,10 +27,10 @@ class Ctx:
         self.resource = resource
 
     def __enter__(self):
-        return resource.open()
+        return self.resource.open()
 
     def __exit__(self, *_):
-        resource.close()
+        self.resource.close()
 
 with Ctx(...) as ctx:
     print(ctx)
